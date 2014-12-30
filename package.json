@@ -1,6 +1,6 @@
 {
   "name": "std-mocks",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Mock node stdout and stderr without pain.",
   "main": "index.js",
   "scripts": {
