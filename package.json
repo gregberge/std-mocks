@@ -6,13 +6,17 @@
   "scripts": {
     "test": "mocha"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:neoziro/std-mocks.git"
+  },
   "author": "Bergé Greg <berge.greg@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": "3.x.x"
   },
   "devDependencies": {
-    "chai": "^1.10.0",
+    "chai": "3.x.x",
     "mocha": "^2.1.0"
   }
 }
