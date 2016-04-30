@@ -13,7 +13,7 @@
   "author": "Bergé Greg <berge.greg@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "lodash": "3.x.x"
+    "lodash": "^4.11.1"
   },
   "devDependencies": {
     "chai": "3.x.x",
