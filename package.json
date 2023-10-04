@@ -12,9 +12,6 @@
   },
   "author": "Bergé Greg <berge.greg@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "lodash": "^4.11.1"
-  },
   "devDependencies": {
     "chai": "3.x.x",
     "mocha": "^2.1.0"

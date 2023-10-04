@@ -28,7 +28,20 @@ describe('Std mocks', function () {
     expect(data.stderr).to.be.empty;
   });
 
-  it('should be possible to flush only stdout', function () {
+  it('should be possible to mock only stderr', function () {
+    stdMocks.use({stdout: false});
+
+    console.log('Test log');
+    console.error('Test error');
+
+    stdMocks.restore();
+
+    var data = stdMocks.flush();
+    expect(data.stdout).to.be.empty;
+    expect(data).to.have.deep.property('stderr[0]', 'Test error\n');
+  });
+
+  it('should be possible to flush only stdout or stderr', function () {
     stdMocks.use();
 
     console.log('Test log');
