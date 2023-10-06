@@ -11,7 +11,7 @@
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"
   },
-  "repository": "github:gregberge/react-merge-refs",
+  "repository": "github:gregberge/std-mocks",
   "author": "Bergé Greg <berge.greg@gmail.com>",
   "license": "MIT",
   "engines": {
