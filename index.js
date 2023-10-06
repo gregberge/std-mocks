@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 // Expose methods.
 exports.use = use;
 exports.restore = restore;
@@ -25,6 +23,16 @@ var cachedData = {
 };
 
 /**
+ * Defaults.
+ */
+
+var defaultOpts = {    
+  stdout: true,
+  stderr: true,
+  print: false
+};
+
+/**
  * Start mocking std output.
  *
  * @param {object} [options] Options
@@ -33,12 +41,8 @@ var cachedData = {
  * @param {boolean} [options.print=false] Also print to std
  */
 
-function use(options) {
-  options = _.defaults(options || {}, {
-    stdout: true,
-    stderr: true,
-    print: false
-  });
+function use(options = {}) {
+  options = {...defaultOpts, ...options}
 
   if (options.stdout)
     wrapWrite('stdout', options.print);
@@ -71,11 +75,8 @@ function wrapWrite(std, print) {
  * @param {boolean} [options.stderr=true] Mock stderr
  */
 
-function restore(options) {
-  options = _.defaults(options || {}, {
-    stdout: true,
-    stderr: true
-  });
+function restore(options = {}) {
+  options = {...defaultOpts, ...options}
 
   if (options.stdout)
     process.stdout.write = originalWrites.stdout;
@@ -93,11 +94,8 @@ function restore(options) {
  * @returns {object} Object containing two array corresponding to outputs.
  */
 
-function flush(options) {
-  options = _.defaults(options || {}, {
-    stdout: true,
-    stderr: true
-  });
+function flush(options = {}) {
+  options = {...defaultOpts, ...options}
 
   var flushed = {};
 
