@@ -9,9 +9,8 @@ exports.flush = flush;
 
 var originalWrites = {
   stdout: process.stdout.write,
-  stderr: process.stderr.write
+  stderr: process.stderr.write,
 };
-
 
 /**
  * Data.
@@ -19,17 +18,17 @@ var originalWrites = {
 
 var cachedData = {
   stdout: [],
-  stderr: []
+  stderr: [],
 };
 
 /**
  * Defaults.
  */
 
-var defaultOpts = {    
+var defaultOpts = {
   stdout: true,
   stderr: true,
-  print: false
+  print: false,
 };
 
 /**
@@ -42,13 +41,11 @@ var defaultOpts = {
  */
 
 function use(options = {}) {
-  options = {...defaultOpts, ...options}
+  options = { ...defaultOpts, ...options };
 
-  if (options.stdout)
-    wrapWrite('stdout', options.print);
+  if (options.stdout) wrapWrite("stdout", options.print);
 
-  if (options.stderr)
-    wrapWrite('stderr', options.print);
+  if (options.stderr) wrapWrite("stderr", options.print);
 }
 
 /**
@@ -62,8 +59,7 @@ function wrapWrite(std, print) {
   process[std].write = function (data) {
     cachedData[std].push(data);
 
-    if (print)
-      originalWrites[std].apply(process[std], arguments);
+    if (print) originalWrites[std].apply(process[std], arguments);
   };
 }
 
@@ -76,13 +72,11 @@ function wrapWrite(std, print) {
  */
 
 function restore(options = {}) {
-  options = {...defaultOpts, ...options}
+  options = { ...defaultOpts, ...options };
 
-  if (options.stdout)
-    process.stdout.write = originalWrites.stdout;
+  if (options.stdout) process.stdout.write = originalWrites.stdout;
 
-  if (options.stderr)
-    process.stderr.write = originalWrites.stderr;
+  if (options.stderr) process.stderr.write = originalWrites.stderr;
 }
 
 /**
@@ -95,7 +89,7 @@ function restore(options = {}) {
  */
 
 function flush(options = {}) {
-  options = {...defaultOpts, ...options}
+  options = { ...defaultOpts, ...options };
 
   var flushed = {};
 

@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha"
   },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:neoziro/std-mocks.git"
